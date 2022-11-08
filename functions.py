@@ -1,4 +1,5 @@
-
+from random import randrange
+import math
 
 
 # https://www.techiedelight.com/de/extended-euclidean-algorithm-

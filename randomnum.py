@@ -16,7 +16,7 @@ def randomnum(n, s1, s2):
         p = []
         x = 1
         for i in range(n - 1):
-            exp.append(randint(1, 2 * ((s - 1) // (n - i)) - 1))
+            exp.append(randint(1, s - n)
             s -= exp[i]  
         exp.append(s - 1)
         for i in range(n):

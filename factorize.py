@@ -1,6 +1,7 @@
-from random import randint, randrange
 import math
 from datetime import datetime
+
+from functions import *
 
 
 def ideal_reduce(idealin, d):

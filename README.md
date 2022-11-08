@@ -1,4 +1,4 @@
-Faktorisierung mit imaginär-quadratischen Zahlkörpern
+Faktorisierung mit der Klassengruppe imaginär-quadratischer Zahlkörper
 
 Algorithmus by Nicolas Flämig
 

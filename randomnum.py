@@ -10,12 +10,12 @@ def randomnum(n, s1, s2):
   s = randint(s1, s2)
   i1 = 1
   i2 = 2
-  while i1 <= i2
+  while i1 <= i2:
     exp = []
     p = []
     x = 1
     for i in range(n - 1):
-      exp.append(randint(1, int((s - 1) / (n - i))))
+      exp.append(randint(1, (s - 1) // (n - i)))
       s -= exp[i]  
     exp.append(s - 1)
     for i in range(n):

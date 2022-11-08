@@ -1,4 +1,4 @@
-Faktorisierung mit imaginär-quadratischen Zahlkörpern
+** Faktorisierung mit imaginär-quadratischen Zahlkörpern **
 
 Algorithmus by Nicolas Flämig
 

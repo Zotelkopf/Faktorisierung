@@ -149,10 +149,10 @@ def ideal_power(idealin, n, d):
     n2 = format(n, "b")
     for i in range(1, len(n2)):
         idealout = ideal_square(idealout, d)
-        print("s", end="")
+        # print("s", end="")
         if n2[i] == "1":
             idealout = ideal_multi(idealout, idealin, d)
-            print("m", end="")
+            # print("m", end="")
     return idealout
 
 
@@ -161,9 +161,9 @@ def ideal_squaretoamb(idealin, d):
     ideal1 = idealin[:]
     for i in range(d.bit_length() // 2):
         ideal2 = ideal_square(ideal1, d)
-        print(ideal1)
+        # print(ideal1)
         if ideal2 == ideal0:
-            print("found with exponent 2^" + str(i))
+            # print("found with exponent 2^" + str(i))
             return ideal1
         ideal1 = ideal2
     return ideal1
@@ -228,7 +228,7 @@ def factorizealg0(s, x, pbound):
                 print(";", end="")
                 while (t % 2) == 0:
                     t //= 2
-                print("(" + str(t) + ")", end="")
+                # print("(" + str(t) + ")", end="")
                 ideal2 = ideal_power(ideal2, t, d)
                 ideal3 = ideal_squaretoamb(ideal2, d)
         if ideal3 == ideal_inverse(ideal3, d):

@@ -207,7 +207,7 @@ def factorize(x, pbound=-1, n=-1):
         if n < 0:
             n = switcher.get(i)[1]
         while not isprime_millerrabin(x):
-            print(i + 1, "(", end="")
+            print(count + 1, "(", end="")
             factors.append(factorizealg(x, pbound, n))
             print(") ", end="")
             if factors[count] == 0:

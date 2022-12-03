@@ -171,7 +171,7 @@ def factorizealg(x, pbound, n):
         if s > 1 and (x % s) == 0:
             return s
         a = factorizealg0(s, x, pbound)
-        if a > 1:
+        if a > 1 and isprime_millerrabin(a):
             return a
         s += 4
         while not isprime_deterministic(s):
@@ -223,8 +223,8 @@ def factorize(x, pbound=-1, n=-1):
         if a == b:
             for j in range(count):
                 if not isprime_millerrabin(factors[j]):
-                    continue
-            tnow = str(datetime.now() - tstart)
-            return "No Error", factors, tnow
+                    break
+                tnow = str(datetime.now() - tstart)
+                return "No Error", factors, tnow
     tnow = str(datetime.now() - tstart)
     return "Error #1", "factors not computable", tnow

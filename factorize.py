@@ -222,8 +222,9 @@ def factorize(x, pbound=-1, n=-1):
             b *= factors[j]
         if a == b:
             for j in range(count):
-                if isprime_millerrabin(factors[j]):
-                    tnow = str(datetime.now() - tstart)
-                    return "No Error", factors, tnow
+                if not isprime_millerrabin(factors[j]):
+                    continue
+            tnow = str(datetime.now() - tstart)
+            return "No Error", factors, tnow
     tnow = str(datetime.now() - tstart)
     return "Error #1", "factors not computable", tnow

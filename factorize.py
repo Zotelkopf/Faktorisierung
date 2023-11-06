@@ -68,13 +68,13 @@ def ideal_power(idealin, n, d):
     idealout = idealin[:]
     if n == 0:
         return ideal_unit(d)
-    n2 = format(n, "b")
+    n2 = format(n, 'b')
     for i in range(1, len(n2)):
         idealout = ideal_square(idealout, d)
-        # print("s", end="")
-        if n2[i] == "1":
+        # print('s', end='')
+        if n2[i] == '1':
             idealout = ideal_multi(idealout, idealin, d)
-            # print("m", end="")
+            # print('m', end='')
     return idealout
 
 
@@ -85,7 +85,7 @@ def ideal_squaretoamb(idealin, d):
         ideal2 = ideal_square(ideal1, d)
         # print(ideal1)
         if ideal2 == ideal0:
-            # print("found with exponent 2^" + str(i))
+            # print(f'found with exponent 2^{i}')
             return ideal1
         ideal1 = ideal2
     return ideal1
@@ -139,22 +139,22 @@ def factorizealg0(s, x, pbound):
     i2 = 1
     while i1 <= i2:
         i1 += 1
-        print(".", end="")
+        print('.', end='')
         ideal1 = ideal_generate(randint(3, 64000), d)
         ideal2 = ideal_power(ideal1, h, d)
         ideal3 = ideal_squaretoamb(ideal2, d)
         if ideal3 != ideal_inverse(ideal3, d):
-            print(":", end="")
+            print(':', end='')
             t = rwalk(ideal3, pbound, d)
             if t > 0:
-                print(";", end="")
+                print(';', end='')
                 while (t % 2) == 0:
                     t //= 2
-                # print("(" + str(t) + ")", end="")
+                # print(f'({t})', end='')
                 ideal2 = ideal_power(ideal2, t, d)
                 ideal3 = ideal_squaretoamb(ideal2, d)
         if ideal3 == ideal_inverse(ideal3, d):
-            print("!" + str(ideal3), end="")
+            print(f'!{ideal3}', end='')
             i2 = 8
             f = 2 * ideal3[0] - ideal3[1]
             f = gcdx(x, f)[0]
@@ -200,16 +200,16 @@ def factorize(x, pbound=-1, n=-1):
         count = 0
         tnow = str(datetime.now() - tstart)
         if int(tnow[0]) >= 1:
-            print("!")
+            print('!')
             break
         if pbound < 0:
             pbound = switcher.get(i)[0]
         if n < 0:
             n = switcher.get(i)[1]
         while not isprime_millerrabin(x):
-            print(count + 1, "(", end="")
+            print(f'{count + 1} (', end='')
             factors.append(factorizealg(x, pbound, n))
-            print(") ", end="")
+            print(') ', end='')
             if factors[count] == 0:
                 factors.pop(-1)
                 break
@@ -227,4 +227,4 @@ def factorize(x, pbound=-1, n=-1):
                 tnow = str(datetime.now() - tstart)
                 return "No Error", factors, tnow
     tnow = str(datetime.now() - tstart)
-    return "Error #1", "factors not computable", tnow
+    return 'Error #1', 'factors not computable', tnow
